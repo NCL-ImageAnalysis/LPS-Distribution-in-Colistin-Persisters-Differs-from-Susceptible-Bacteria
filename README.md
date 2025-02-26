@@ -18,19 +18,19 @@ Fengyi Wang 1,2, George Merces 3,4, Dominic Alderson 2, Adam J M Wollman 2, Mark
 
 **Basic Overview of Process**
 
-1. Open image representation of dSTORM data in FIJI [CITATION]
+1. Open image representation of dSTORM data in FIJI
 2. Flip image vertically to ensure FIJI coordinates match to csv dSTORM coordinates
 3. Using the Rectangular ROI drawing tool, draw around each individual cell visible in the image, adding each to the FIJI ROI Manager
-4. Open macro named "Extract_Coordinates_from_Image_ROIs.ijm" and run (detailed description of the code later)
+4. Open macro named "1_Extract_Coordinates_from_Image_ROIs.ijm" and run (detailed description of the code later)
 5. Copy the output coordinate locations for later transfer to R code
-6. Open R Code in RStudio named "20240815_MW_Multi_Cell_Analysis.R"
+6. Open R Code in RStudio named "2_Multi_Cell_Analysis.R"
 7. Paste the saved ROI coordinate locations, one section for each raw image
 8. Run the Code for all images (detailed description later)
-9. Open the FIJI Code called "20240925_Mandy_Wang_Membrane_Analysis.ijm"
+9. Open the FIJI Code called "3_Extract_Membrane_Points.ijm"
 10. For each image, open within FIJI. Using the polygon ROI drawing tool, draw on the membrane region for each cell individually, making sure to add to the FIJI ROI Manager
 11. Save the output ROI Zip files to an appropriate folder location, using a consistent naming strategy to be able to match the files to your original datasets (ideally use the exact same name, but with a .zip extension instead of .csv/.tif/.png etc)
 12. Run the FIJI code and direct it to the appropriate folders when prompted (detailed description of the code later)
-13. Once the code is completed and a csv file is output with coordinate points for each cell of interest in each image, open the RStudio code named ""20240925_MW_Membrane_Analysis.R"
+13. Once the code is completed and a csv file is output with coordinate points for each cell of interest in each image, open the RStudio code named ""4_Membrane_Analysis.R"
 14. Adapt the RStudio code to direct files to the correct locations, then run the code (detailed description of the code later)
 
 
@@ -39,7 +39,7 @@ Fengyi Wang 1,2, George Merces 3,4, Dominic Alderson 2, Adam J M Wollman 2, Mark
 **DETAILED DESCRIPTIONS OF CODE USED WITHIN THIS STUDY**
 
 
-**Extract_Coordinates_from_Image_ROIs.ijm**
+**1_Extract_Coordinates_from_Image_ROIs.ijm**
 Count ROIs: The macro starts by determining the total number of ROIs in the ROI Manager using roiManager("count").
 
 Initialize Arrays: Empty arrays are created to store the starting and ending coordinates for the x and y positions (xS, yS, xE, yE).
@@ -70,7 +70,7 @@ Initialize Arrays: Empty arrays are created to store the starting and ending coo
 
 ********************************************************************************************************************
 
-**20240815_MW_Multi_Cell_Analysis.R**
+**2_Multi_Cell_Analysis.R**
 
 1. Data Import and Preparation:
 
@@ -126,7 +126,7 @@ Initialize Arrays: Empty arrays are created to store the starting and ending coo
 
 ********************************************************************************************************************
 
-**20240925_Mandy_Wang_Membrane_Analysis.ijm**
+**3_Extract_Membrane_Points.ijm**
 
 1. Folder Selection
 
@@ -164,7 +164,7 @@ Initialize Arrays: Empty arrays are created to store the starting and ending coo
 
 ********************************************************************************************************************
 
-**20240925_MW_Membrane_Analysis.R**
+**4_Membrane_Analysis.R**
 
 1. Data Import
    
