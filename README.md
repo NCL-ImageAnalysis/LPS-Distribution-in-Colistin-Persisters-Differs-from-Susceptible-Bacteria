@@ -40,6 +40,7 @@ Fengyi Wang 1,2, George Merces 3,4, Dominic Alderson 2, Adam J M Wollman 2, Mark
 
 
 **1_Extract_Coordinates_from_Image_ROIs.ijm**
+
 Count ROIs: The macro starts by determining the total number of ROIs in the ROI Manager using roiManager("count").
 
 Initialize Arrays: Empty arrays are created to store the starting and ending coordinates for the x and y positions (xS, yS, xE, yE).
